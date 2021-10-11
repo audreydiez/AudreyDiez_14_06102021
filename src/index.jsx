@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import 'assets/styles/reset.css'
+import 'assets/styles/utils.scss'
 import './index.css'
 
 import App from './router/App'

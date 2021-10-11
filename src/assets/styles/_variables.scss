@@ -1,7 +1,9 @@
 // Colours
-$colour-primary: #323232;
-$colour-secondary: #000;
+$colour-primary: #f06c6c;
+$colour-secondary: #343434;
 $colour-tertiary: #282d30;
+
+$background-site: #f8f7f3;
 
 $gradientStart: #11998e;
 $gradientStop: #38ef7d;
@@ -13,7 +15,7 @@ $gradient_01: $gradientStart, $gradientStop;
 $font-size-base: 1rem;
 $font-color-light: #fff;
 $font-color-gray: #888888;
-$font-color-dark: #323232;
+$font-color-dark: #343434;
 
 // Breakpoint for responsive
 $breakpoints: (

@@ -1,0 +1,21 @@
+@import 'assets/styles/mixins';
+@import 'assets/styles/variables';
+
+.notification-bubble {
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    top: -10px;
+    right: -10px;
+    background-color: $colour-primary;
+    border-radius: 50%;
+}
+.notification-text {
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 22px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $font-color-light;
+}
