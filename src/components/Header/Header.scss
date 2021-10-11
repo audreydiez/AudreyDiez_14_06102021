@@ -25,9 +25,17 @@
         }
         &-bloc:nth-child(3) {
             flex-basis: 30px;
+
+            @include breakpoint(s) {
+                display: none;
+            }
         }
         &-bloc:nth-child(4) {
             flex-basis: 30px;
+
+            @include breakpoint(m) {
+                display: none;
+            }
         }
         &-bloc:nth-child(5) {
             cursor: pointer;
@@ -39,13 +47,17 @@
 
             align-items: center;
             text-align: right;
+
+            @include breakpoint(l) {
+                display: none;
+            }
         }
 
         &-bloc {
             & .hamburger {
                 //background-color: $colour-secondary;
                 cursor: pointer;
-                width: 50px;
+                width: 40px;
                 height: 40px;
                 margin-right: 2.5rem;
 
@@ -55,6 +67,11 @@
 
                 justify-items: center;
                 align-items: center;
+
+                @include breakpoint(m) {
+                    width: 30px;
+                    height: 30px;
+                }
 
                 &:hover,
                 &:focus {
@@ -73,8 +90,12 @@
             }
             & .logo {
                 cursor: pointer;
-                width: 200px;
+                width: 150px;
                 height: auto;
+
+                @include breakpoint(m) {
+                    width: 125px;
+                }
             }
             & .notifications {
                 position: relative;
@@ -126,6 +147,12 @@
 
     overflow: hidden;
 
+    @include breakpoint(s) {
+        width: 100%;
+        padding-top: 2rem;
+        height: calc(100vh - 80px - 2rem);
+    }
+
     &.active {
     }
 
@@ -146,6 +173,10 @@
             transition: 0.3s;
             text-decoration: none;
             font-weight: 600;
+
+            @include breakpoint(s) {
+                padding: 1.5rem 0 1.5rem 3rem;
+            }
 
             &:after {
                 content: '';
@@ -191,6 +222,11 @@
             left: 50%;
             transform: translate(-50%, 0%);
             width: 300px;
+
+            @include breakpoint(s) {
+                width: 250px;
+                top: 40%;
+            }
         }
     }
 }
