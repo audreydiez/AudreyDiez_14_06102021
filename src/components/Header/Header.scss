@@ -138,7 +138,7 @@
     height: calc(100vh - 80px - 4rem);
     background-color: $colour-secondary;
 
-    padding-top: 4rem;
+    padding-top: 2rem;
 
     display: flex;
     flex-direction: column;
@@ -151,17 +151,52 @@
         width: 100%;
         padding-top: 2rem;
         height: calc(100vh - 80px - 2rem);
+
+        &.active {
+            animation: OpenMobile 300ms ease-in-out 300ms forwards;
+        }
     }
 
     &.active {
+        animation: Open 300ms ease-in-out forwards;
+
+        .menu-nav-blocs {
+            opacity: 0;
+            animation: FadeIn 300ms ease-in-out 300ms forwards;
+        }
+        .menu-nav-img {
+            opacity: 0;
+            animation: FadeIn 300ms ease-in-out 300ms forwards;
+        }
     }
 
     &.hidden {
-        margin-left: -350px;
+        animation: Close 300ms ease-in-out 300ms forwards;
+
+        .menu-nav-blocs {
+            animation: FadeOut 300ms ease-in-out forwards;
+        }
+        .menu-nav-img {
+            animation: FadeOut 300ms ease-in-out forwards;
+        }
     }
 
     &-blocs {
         width: 100%;
+
+        // Display on small screen
+        & > :nth-child(3) {
+            display: none;
+            @include breakpoint(s) {
+                display: flex;
+            }
+        }
+        & > :nth-child(4) {
+            display: none;
+            @include breakpoint(m) {
+                display: flex;
+            }
+        }
 
         &-link {
             position: relative;
@@ -201,9 +236,21 @@
                     background-color: $colour-primary;
                 }
             }
-
+            & .bloc-icon {
+                position: relative;
+                width: 50px;
+            }
             & .icon {
                 margin-right: 1rem;
+            }
+            &.profile {
+                text-align: center;
+                & .avatar {
+                    width: 55px;
+                }
+                span {
+                    margin-left: 1.5rem;
+                }
             }
         }
     }
@@ -228,5 +275,43 @@
                 top: 40%;
             }
         }
+    }
+}
+
+@keyframes FadeOut {
+    to {
+        opacity: 0;
+    }
+}
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes Close {
+    0% {
+        width: 350px;
+    }
+
+    100% {
+        width: 0;
+    }
+}
+@keyframes Open {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 350px;
+    }
+}
+
+@keyframes OpenMobile {
+    to {
+        width: 100%;
     }
 }

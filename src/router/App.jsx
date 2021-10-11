@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 
 import Employees from 'containers/Employees/Employees'
 import Home from 'containers/Home/Home'

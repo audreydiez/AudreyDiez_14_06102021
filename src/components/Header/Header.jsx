@@ -13,18 +13,22 @@ import Blob from '../../assets/img/blob.svg'
 import Workers from '../../assets/img/workers.svg'
 
 function Header() {
-    const [toggleMenu, setToggleMenu] = React.useState(true)
+    const [menuDisplay, setMenuDisplay] = React.useState(true)
+    const [displayNone, setDisplayNone] = React.useState(false)
+
+    const toggleMenu = () => {
+        setMenuDisplay(!menuDisplay)
+        setTimeout(function () {
+            setDisplayNone(!displayNone)
+        }, 550)
+    }
 
     return (
         <>
             <nav role="main" className="main-nav">
                 <ul className="main-nav-blocs">
                     <li className="main-nav-blocs-bloc">
-                        <div
-                            className="hamburger"
-                            onClick={() => {
-                                setToggleMenu(!toggleMenu)
-                            }}>
+                        <div className="hamburger" onClick={toggleMenu}>
                             <div className="line" />
                             <div className="line" />
                             <div className="line" />
@@ -56,14 +60,46 @@ function Header() {
                     </li>
                 </ul>
             </nav>
-            <nav role="sub" className={`menu-nav ${toggleMenu ? 'active' : 'hidden'}`}>
+            <nav
+                role="sub"
+                className={`menu-nav ${menuDisplay ? 'active' : 'hidden'} `}
+                style={{ display: displayNone ? 'none' : 'flex' }}>
                 <div className="menu-nav-blocs">
-                    <Link to={`/}`} className="menu-nav-blocs-link">
-                        <FontAwesomeIcon icon={faAddressBook} size="lg" className="icon" />
+                    <div className="menu-nav-blocs-link profile">
+                        <div className="bloc-icon">
+                            <img src={Avatar} alt="" className="avatar" />
+                        </div>
+                        <span>John Cena</span>
+                    </div>
+                    <div className="separator" />
+                    <Link to={`/`} className="menu-nav-blocs-link">
+                        <div className="bloc-icon">
+                            <span className="notification-bubble-menu">
+                                <span className="notification-text">1</span>
+                            </span>
+                            <FontAwesomeIcon icon={faEnvelope} size="lg" className="icon" />
+                        </div>
+                        <span className="text">Mailbox</span>
+                    </Link>
+                    <Link to={`/`} className="menu-nav-blocs-link">
+                        <div className="bloc-icon">
+                            <span className="notification-bubble-menu">
+                                <span className="notification-text">3</span>
+                            </span>
+                            <FontAwesomeIcon icon={faBell} size="lg" className="icon" />
+                        </div>
+                        <span className="text">Notifications</span>
+                    </Link>
+                    <Link to={`/`} className="menu-nav-blocs-link">
+                        <div className="bloc-icon">
+                            <FontAwesomeIcon icon={faAddressBook} size="lg" className="icon" />
+                        </div>
                         <span className="text">All employees</span>
                     </Link>
-                    <Link to={`/}`} className="menu-nav-blocs-link">
-                        <FontAwesomeIcon icon={faUserPlus} size="lg" className="icon" />
+                    <Link to={`/`} className="menu-nav-blocs-link">
+                        <div className="bloc-icon">
+                            <FontAwesomeIcon icon={faUserPlus} size="lg" className="icon" />
+                        </div>
                         <span>New employee</span>
                     </Link>
                 </div>

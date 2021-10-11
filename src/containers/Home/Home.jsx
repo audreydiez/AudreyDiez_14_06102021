@@ -1,10 +1,10 @@
 import './Home.scss'
 
-
 function Home() {
     return (
-        <main>
-            Home
+        <main className="main">
+            <div className="bloc">Un bloc</div>
+            <div className="bloc">Un bloc</div>
         </main>
     )
 }
