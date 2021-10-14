@@ -6,7 +6,6 @@ import Home from 'containers/Home/Home'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Navigation from '../components/Navigation/Navigation'
 import NewEmployee from '../containers/NewEmployee/NewEmployee'
-import NavigationSide from '../components/Navigation/NavigationSide'
 
 const routes = [
     {

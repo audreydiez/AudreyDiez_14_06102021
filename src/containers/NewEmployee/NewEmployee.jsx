@@ -1,13 +1,21 @@
 import './NewEmployee.scss'
 import HeaderTitle from '../../components/HeaderTitle/HeaderTitle'
 
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+
 import Select from 'react-select'
-const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-]
+import { useState } from 'react'
+
 function NewEmployee() {
+    const options = [
+        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' }
+    ]
+
+    const [startDate, setStartDate] = useState(new Date())
+
     return (
         <div className="new-employee">
             <HeaderTitle title="New Employee" />
@@ -42,24 +50,18 @@ function NewEmployee() {
                             <label htmlFor="birthdate" className="form-label">
                                 Birthdate
                             </label>
-                            <input
-                                type="text"
-                                id="birthdate"
-                                name="birthdate"
-                                placeholder="dd/mm/yyyy"
-                                className="form-input"
+                            <DatePicker
+                                selected={startDate}
+                                onChange={(date) => setStartDate(date)}
                             />
                         </div>
                         <div className="row-50">
                             <label htmlFor="start-date" className="form-label">
                                 Start date
                             </label>
-                            <input
-                                type="text"
-                                id="start-date"
-                                name="start-date"
-                                placeholder="dd/mm/yyyy"
-                                className="form-input"
+                            <DatePicker
+                                selected={startDate}
+                                onChange={(date) => setStartDate(date)}
                             />
                         </div>
                     </div>
