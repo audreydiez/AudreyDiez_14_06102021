@@ -7,8 +7,9 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { getMonth, getYear } from 'date-fns'
 import range from 'lodash/range'
 
-import Select from 'react-select'
+import Select, { createFilter } from 'react-select'
 import { useState } from 'react'
+import { components } from 'react-select'
 
 function NewEmployee() {
     const options = [
@@ -33,6 +34,17 @@ function NewEmployee() {
         'November',
         'December'
     ]
+
+    const CustomOption = ({ children, ...props }) => {
+        // eslint-disable-next-line no-unused-vars
+        const { onMouseMove, onMouseOver, ...rest } = props.innerProps
+        const newProps = { ...props, innerProps: rest }
+        return (
+            <components.Option {...newProps} className="custom-option">
+                {children}
+            </components.Option>
+        )
+    }
 
     return (
         <div className="new-employee">
@@ -69,6 +81,55 @@ function NewEmployee() {
                                 Birthdate
                             </label>
                             <DatePicker
+                                renderCustomHeader={({
+                                    date,
+                                    changeYear,
+                                    changeMonth,
+                                    decreaseMonth,
+                                    increaseMonth,
+                                    prevMonthButtonDisabled,
+                                    nextMonthButtonDisabled
+                                }) => (
+                                    <div
+                                        style={{
+                                            margin: 10,
+                                            display: 'flex',
+                                            justifyContent: 'center'
+                                        }}>
+                                        <button
+                                            onClick={decreaseMonth}
+                                            disabled={prevMonthButtonDisabled}>
+                                            {'<'}
+                                        </button>
+                                        <select
+                                            value={getYear(date)}
+                                            onChange={({ target: { value } }) => changeYear(value)}>
+                                            {years.map((option) => (
+                                                <option key={option} value={option}>
+                                                    {option}
+                                                </option>
+                                            ))}
+                                        </select>
+
+                                        <select
+                                            value={months[getMonth(date)]}
+                                            onChange={({ target: { value } }) =>
+                                                changeMonth(months.indexOf(value))
+                                            }>
+                                            {months.map((option) => (
+                                                <option key={option} value={option}>
+                                                    {option}
+                                                </option>
+                                            ))}
+                                        </select>
+
+                                        <button
+                                            onClick={increaseMonth}
+                                            disabled={nextMonthButtonDisabled}>
+                                            {'>'}
+                                        </button>
+                                    </div>
+                                )}
                                 selected={startDate}
                                 onChange={(date) => setStartDate(date)}
                             />
@@ -181,7 +242,13 @@ function NewEmployee() {
                             <label htmlFor="state" className="form-label">
                                 Department
                             </label>
-                            <Select options={options} />
+                            <Select
+                                filterOption={createFilter({ ignoreAccents: false })}
+                                options={options}
+                                components={{ Option: CustomOption }}
+                                classNamePrefix="custom-select"
+                                className={'custom-select'}
+                            />
                         </div>
                     </div>
                     <button className="btn-submit" type="submit">

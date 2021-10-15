@@ -13,8 +13,8 @@ import Blob from '../../assets/img/blob.svg'
 import Workers from '../../assets/img/workers.svg'
 
 function Navigation() {
-    const [menuDisplay, setMenuDisplay] = React.useState(true)
-    const [displayNone, setDisplayNone] = React.useState(false)
+    const [menuDisplay, setMenuDisplay] = React.useState(false)
+    const [displayNone, setDisplayNone] = React.useState(true)
 
     const toggleMenu = () => {
         setMenuDisplay(!menuDisplay)
