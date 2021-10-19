@@ -62,32 +62,3 @@ export const departments = [
     { value: 'hr', label: 'Human Resources' },
     { value: 'legal', label: 'Legal' }
 ]
-
-export const months = [
-    { value: '0', label: 'January' },
-    { value: '1', label: 'February' },
-    { value: '2', label: 'March' },
-    { value: '3', label: 'April' },
-    { value: '4', label: 'May' },
-    { value: '5', label: 'June' },
-    { value: '6', label: 'July' },
-    { value: '7', label: 'August' },
-    { value: '8', label: 'September' },
-    { value: '9', label: 'October' },
-    { value: '10', label: 'November' },
-    { value: '11', label: 'December' }
-]
-
-export const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-
-export const labels = [
-    { label: 'First Name', value: 'firstname' },
-    { label: 'Last Name', value: 'lastname' },
-    { label: 'Start Date', value: 'start' },
-    { label: 'Department', value: 'department' },
-    { label: 'Date of Birth', value: 'birth' },
-    { label: 'Street', value: 'street' },
-    { label: 'City', value: 'city' },
-    { label: 'State', value: 'state' },
-    { label: 'Zip Code', value: 'zipCode' }
-]
