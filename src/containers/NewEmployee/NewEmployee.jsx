@@ -11,6 +11,8 @@ import Select, { createFilter } from 'react-select'
 import { useState } from 'react'
 import { components } from 'react-select'
 
+import { statesUSA, departments } from 'assets/data/data'
+
 function NewEmployee() {
     const options = [
         { value: 'chocolate', label: 'Chocolate' },
@@ -46,33 +48,64 @@ function NewEmployee() {
         )
     }
 
+    const [newEmployee, setNewEmployee] = useState({
+        firstName: 'q',
+        lastName: '',
+        birthdate: '',
+        startDate: '',
+        street: '',
+        city: '',
+        state: '',
+        zipCode: '',
+        department: departments[0].label
+    })
+
+    const formSubmit = (e) => {
+        e.preventDefault()
+    }
+
+    const handleChange = (e) => {
+        setNewEmployee((state) => ({
+            ...state,
+            [e.target.id]: e.target.value
+        }))
+    }
+    const handleChangeSelect = (e) => {
+        setNewEmployee((state) => ({
+            ...state,
+            department: e.value
+        }))
+    }
+
     return (
         <div className="new-employee">
             <HeaderTitle title="New Employee" />
             <main className="main-new-employee">
-                <form action="" className="form-classic">
+                <form action="" className="form-classic" onSubmit={formSubmit}>
                     <div className="row">
                         <div className="row-50">
-                            <label htmlFor="f-name" className="form-label">
+                            <label htmlFor="firstName" className="form-label">
                                 First name
                             </label>
                             <input
                                 type="text"
-                                id="f-name"
-                                name="f-name"
-                                placeholder="Test"
+                                id="firstName"
+                                name="firstName"
+                                value={newEmployee.firstName}
+                                onChange={handleChange}
                                 className="form-input"
                             />
                         </div>
                         <div className="row-50">
-                            <label htmlFor="l-name" className="form-label">
+                            <label htmlFor="lastName" className="form-label">
                                 Last name
                             </label>
                             <input
                                 type="text"
-                                id="l-name"
-                                name="l-name"
-                                placeholder="Test"
+                                id="lastName"
+                                name="lastName"
+                                value={newEmployee.lastName}
+                                onChange={handleChange}
                                 className="form-input"
                             />
                         </div>
@@ -202,7 +235,8 @@ function NewEmployee() {
                                 type="text"
                                 id="street"
                                 name="street"
-                                placeholder="Street"
+                                value={newEmployee.street}
+                                onChange={handleChange}
                                 className="form-input"
                             />
                         </div>
@@ -214,33 +248,14 @@ function NewEmployee() {
                                 type="text"
                                 id="city"
                                 name="city"
-                                placeholder="City"
+                                value={newEmployee.city}
+                                onChange={handleChange}
                                 className="form-input"
                             />
                         </div>
                         <div className="row-50">
                             <label htmlFor="state" className="form-label">
                                 State
-                            </label>
-                            <Select options={options} />
-                        </div>
-                        <div className="row-50">
-                            <label htmlFor="zip" className="form-label">
-                                Zip Code
-                            </label>
-                            <input
-                                type="text"
-                                id="zip"
-                                name="zip"
-                                placeholder="Zip"
-                                className="form-input"
-                            />
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="row-100">
-                            <label htmlFor="state" className="form-label">
-                                Department
                             </label>
                             <Select
                                 filterOption={createFilter({ ignoreAccents: false })}
@@ -250,10 +265,41 @@ function NewEmployee() {
                                 className={'custom-select'}
                             />
                         </div>
+                        <div className="row-50">
+                            <label htmlFor="zip" className="form-label">
+                                Zip Code
+                            </label>
+                            <input
+                                type="text"
+                                id="zipCode"
+                                name="zipCode"
+                                value={newEmployee.zipCode}
+                                onChange={handleChange}
+                                className="form-input"
+                            />
+                        </div>
                     </div>
+                    <div className="row">
+                        <div className="row-100">
+                            <label htmlFor="state" className="form-label department-label">
+                                Department
+                            </label>
+                            <Select
+                                filterOption={createFilter({ ignoreAccents: false })}
+                                options={departments}
+                                components={{ Option: CustomOption }}
+                                classNamePrefix="custom-select"
+                                className={'custom-select'}
+                                onChange={handleChangeSelect}
+                                value={{ label: newEmployee.department }}
+                            />
+                        </div>
+                    </div>
+
                     <button className="btn-submit" type="submit">
                         Save
                     </button>
+                    <div>{newEmployee.department}</div>
                 </form>
             </main>
         </div>
