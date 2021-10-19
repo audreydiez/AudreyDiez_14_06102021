@@ -14,12 +14,6 @@ import { components } from 'react-select'
 import { statesUSA, departments } from 'assets/data/data'
 
 function NewEmployee() {
-    const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' }
-    ]
-
     const [startDate, setStartDate] = useState(new Date())
     const years = range(1990, getYear(new Date()) + 1, 1)
     const months = [
@@ -55,7 +49,7 @@ function NewEmployee() {
         startDate: '',
         street: '',
         city: '',
-        state: '',
+        state: statesUSA[0].label,
         zipCode: '',
         department: departments[0].label
     })
@@ -64,16 +58,11 @@ function NewEmployee() {
         e.preventDefault()
     }
 
+    // Handle change classic form input
     const handleChange = (e) => {
         setNewEmployee((state) => ({
             ...state,
             [e.target.id]: e.target.value
-        }))
-    }
-    const handleChangeSelect = (e) => {
-        setNewEmployee((state) => ({
-            ...state,
-            department: e.value
         }))
     }
 
@@ -259,10 +248,18 @@ function NewEmployee() {
                             </label>
                             <Select
                                 filterOption={createFilter({ ignoreAccents: false })}
-                                options={options}
+                                options={statesUSA}
                                 components={{ Option: CustomOption }}
                                 classNamePrefix="custom-select"
                                 className={'custom-select'}
+                                onChange={(e) => {
+                                    setNewEmployee((state) => ({
+                                        ...state,
+                                        state: e.value
+                                    }))
+                                }}
+                                value={{ label: newEmployee.state }}
+                                defaultMenuIsOpen
                             />
                         </div>
                         <div className="row-50">
@@ -290,7 +287,12 @@ function NewEmployee() {
                                 components={{ Option: CustomOption }}
                                 classNamePrefix="custom-select"
                                 className={'custom-select'}
-                                onChange={handleChangeSelect}
+                                onChange={(e) => {
+                                    setNewEmployee((state) => ({
+                                        ...state,
+                                        department: e.value
+                                    }))
+                                }}
                                 value={{ label: newEmployee.department }}
                             />
                         </div>
@@ -299,7 +301,6 @@ function NewEmployee() {
                     <button className="btn-submit" type="submit">
                         Save
                     </button>
-                    <div>{newEmployee.department}</div>
                 </form>
             </main>
         </div>
