@@ -5,7 +5,6 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
 import { getMonth, getYear } from 'date-fns'
-import format from 'date-fns/format'
 
 import Select, { createFilter } from 'react-select'
 import { useState } from 'react'
@@ -28,6 +27,9 @@ function NewEmployee() {
 
     const formSubmit = (e) => {
         e.preventDefault()
+        let employees = JSON.parse(localStorage.getItem('employees')) || []
+        employees.push(newEmployee)
+        localStorage.setItem('employees', JSON.stringify(employees))
     }
 
     // Handle change classic form input
@@ -39,7 +41,6 @@ function NewEmployee() {
     }
 
     const createDatePicker = (inputName) => {
-        console.log(newEmployee)
         return (
             <DatePicker
                 renderCustomHeader={({
@@ -99,6 +100,38 @@ function NewEmployee() {
         )
     }
 
+    const createInput = (inputType, inputName) => {
+        return (
+            <input
+                type={inputType}
+                id={inputName}
+                name={inputName}
+                value={newEmployee[inputName]}
+                onChange={handleChange}
+                className="form-input"
+            />
+        )
+    }
+
+    const createSelect = (options, inputName) => {
+        return (
+            <Select
+                filterOption={createFilter({ ignoreAccents: false })}
+                options={options}
+                components={{ Option: CustomOption }}
+                classNamePrefix="custom-select"
+                className={'custom-select'}
+                onChange={(e) => {
+                    setNewEmployee((state) => ({
+                        ...state,
+                        [inputName]: e.label
+                    }))
+                }}
+                value={{ label: newEmployee[inputName] }}
+            />
+        )
+    }
+
     return (
         <div className="new-employee">
             <HeaderTitle title="New Employee" />
@@ -109,27 +142,13 @@ function NewEmployee() {
                             <label htmlFor="firstName" className="form-label">
                                 First name
                             </label>
-                            <input
-                                type="text"
-                                id="firstName"
-                                name="firstName"
-                                value={newEmployee.firstName}
-                                onChange={handleChange}
-                                className="form-input"
-                            />
+                            {createInput('text', 'firstName')}
                         </div>
                         <div className="row-50">
                             <label htmlFor="lastName" className="form-label">
                                 Last name
                             </label>
-                            <input
-                                type="text"
-                                id="lastName"
-                                name="lastName"
-                                value={newEmployee.lastName}
-                                onChange={handleChange}
-                                className="form-input"
-                            />
+                            {createInput('text', 'lastName')}
                         </div>
                         <div className="row-50">
                             <label htmlFor="birthdate" className="form-label">
@@ -149,59 +168,25 @@ function NewEmployee() {
                             <label htmlFor="street" className="form-label">
                                 Street
                             </label>
-                            <input
-                                type="text"
-                                id="street"
-                                name="street"
-                                value={newEmployee.street}
-                                onChange={handleChange}
-                                className="form-input"
-                            />
+                            {createInput('text', 'street')}
                         </div>
                         <div className="row-50">
                             <label htmlFor="city" className="form-label">
                                 City
                             </label>
-                            <input
-                                type="text"
-                                id="city"
-                                name="city"
-                                value={newEmployee.city}
-                                onChange={handleChange}
-                                className="form-input"
-                            />
+                            {createInput('text', 'city')}
                         </div>
                         <div className="row-50">
                             <label htmlFor="state" className="form-label">
                                 State
                             </label>
-                            <Select
-                                filterOption={createFilter({ ignoreAccents: false })}
-                                options={statesUSA}
-                                components={{ Option: CustomOption }}
-                                classNamePrefix="custom-select"
-                                className={'custom-select'}
-                                onChange={(e) => {
-                                    setNewEmployee((state) => ({
-                                        ...state,
-                                        state: e.label
-                                    }))
-                                }}
-                                value={{ label: newEmployee.state }}
-                            />
+                            {createSelect(statesUSA, 'state')}
                         </div>
                         <div className="row-50">
                             <label htmlFor="zip" className="form-label">
                                 Zip Code
                             </label>
-                            <input
-                                type="text"
-                                id="zipCode"
-                                name="zipCode"
-                                value={newEmployee.zipCode}
-                                onChange={handleChange}
-                                className="form-input"
-                            />
+                            {createInput('text', 'zipCode')}
                         </div>
                     </div>
                     <div className="row">
@@ -209,21 +194,7 @@ function NewEmployee() {
                             <label htmlFor="state" className="form-label department-label">
                                 Department
                             </label>
-                            <Select
-                                filterOption={createFilter({ ignoreAccents: false })}
-                                options={departments}
-                                components={{ Option: CustomOption }}
-                                classNamePrefix="custom-select"
-                                className={'custom-select'}
-                                onChange={(e) => {
-                                    console.log(e)
-                                    setNewEmployee((state) => ({
-                                        ...state,
-                                        department: e.label
-                                    }))
-                                }}
-                                value={{ label: newEmployee.department }}
-                            />
+                            {createSelect(departments, 'department')}
                         </div>
                     </div>
 
