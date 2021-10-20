@@ -30,6 +30,7 @@ function NewEmployee() {
         let employees = JSON.parse(localStorage.getItem('employees')) || []
         employees.push(newEmployee)
         localStorage.setItem('employees', JSON.stringify(employees))
+        console.log(newEmployee)
     }
 
     const createDatePicker = (inputName) => {
@@ -87,7 +88,7 @@ function NewEmployee() {
                         [inputName]: date
                     }))
                 }}
-                dateFormat="MM/dd/yyyyy"
+                dateFormat="MM/dd/yyyy"
             />
         )
     }
