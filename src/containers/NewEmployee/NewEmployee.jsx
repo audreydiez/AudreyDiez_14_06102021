@@ -32,14 +32,6 @@ function NewEmployee() {
         localStorage.setItem('employees', JSON.stringify(employees))
     }
 
-    // Handle change classic form input
-    const handleChange = (e) => {
-        setNewEmployee((state) => ({
-            ...state,
-            [e.target.id]: e.target.value
-        }))
-    }
-
     const createDatePicker = (inputName) => {
         return (
             <DatePicker
@@ -107,7 +99,12 @@ function NewEmployee() {
                 id={inputName}
                 name={inputName}
                 value={newEmployee[inputName]}
-                onChange={handleChange}
+                onChange={(e) => {
+                    setNewEmployee((state) => ({
+                        ...state,
+                        [e.target.id]: e.target.value
+                    }))
+                }}
                 className="form-input"
             />
         )
