@@ -12,24 +12,27 @@ import { useState } from 'react'
 import { statesUSA, departments } from 'assets/data/data'
 import { CustomOption, years, months } from 'utils/DatePickerOptions'
 
+const initialStateEmployee = {
+    firstName: '',
+    lastName: '',
+    birthdate: new Date(),
+    startDate: new Date(),
+    street: '',
+    city: '',
+    state: statesUSA[0].label,
+    zipCode: '',
+    department: departments[0].label
+}
+
 function NewEmployee() {
-    const [newEmployee, setNewEmployee] = useState({
-        firstName: '',
-        lastName: '',
-        birthdate: new Date(),
-        startDate: new Date(),
-        street: '',
-        city: '',
-        state: statesUSA[0].label,
-        zipCode: '',
-        department: departments[0].label
-    })
+    const [newEmployee, setNewEmployee] = useState(initialStateEmployee)
 
     const formSubmit = (e) => {
         e.preventDefault()
         let employees = JSON.parse(localStorage.getItem('employees')) || []
         employees.push(newEmployee)
         localStorage.setItem('employees', JSON.stringify(employees))
+        setNewEmployee(initialStateEmployee)
         console.log(newEmployee)
     }
 

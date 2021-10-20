@@ -3,19 +3,9 @@ import './Employees.scss'
 import DataTables from 'datatables-plugin-react'
 import 'assets/styles/datatables.scss'
 
-import moment from 'moment'
+import { dataTableLabels } from 'assets/data/data'
 
-const labels = [
-    { text: 'First Name', value: 'firstName' },
-    { text: 'Last Name', value: 'lastName' },
-    { text: 'Start Date', value: 'startDate' },
-    { text: 'Department', value: 'department' },
-    { text: 'Date of Birth', value: 'birthdate' },
-    { text: 'Street', value: 'street' },
-    { text: 'City', value: 'city' },
-    { text: 'State', value: 'state' },
-    { text: 'Zip Code', value: 'zipCode' }
-]
+import moment from 'moment'
 
 function Employees() {
     let employeesData = JSON.parse(localStorage.getItem('employees')) || []
@@ -29,7 +19,7 @@ function Employees() {
     return (
         <main className="main">
             Employees
-            <DataTables labels={labels} data={employeesData} />
+            <DataTables labels={dataTableLabels} data={employeesData} />
         </main>
     )
 }
