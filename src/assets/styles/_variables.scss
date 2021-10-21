@@ -1,0 +1,35 @@
+// Colours
+$colour-primary: #f06c6c;
+$colour-secondary: #343434;
+$colour-tertiary: #282d30;
+
+$background-site: #f8f7f3;
+
+$gradientStart: #11998e;
+$gradientStop: #38ef7d;
+$direction: to left;
+
+$gradient_01: $gradientStart, $gradientStop;
+
+// Fonts
+$font-size-base: 1rem;
+$font-color-light: #fff;
+$font-color-gray: #888888;
+$font-color-dark: #343434;
+
+// Breakpoint for responsive
+$breakpoints: (
+    s: '350px',
+    m: '550px',
+    l: '800px',
+    xl: '1024px',
+    xxl: '1490px'
+);
+
+//Layout margin
+$layout-margin: 2.5rem 1.5rem;
+$border-radius-xs: 5px;
+$border-radius-s: 10px;
+$border-radius-lg: 25px;
+$background-tiles: #fbfbfb;
+$background-icon: #fff;

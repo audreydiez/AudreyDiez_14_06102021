@@ -1,0 +1,32 @@
+@import 'variables';
+
+@mixin breakpoint($point) {
+    @if $point == s {
+        @media (max-width: map-get($breakpoints, s)) {
+            @content;
+        }
+    } @else if $point == m {
+        @media (max-width: map-get($breakpoints, m)) {
+            @content;
+        }
+    } @else if $point == l {
+        @media (max-width: map-get($breakpoints, l)) {
+            @content;
+        }
+    } @else if $point == xl {
+        @media (max-width: map-get($breakpoints, xl)) {
+            @content;
+        }
+    } @else if $point == xxl {
+        @media (max-width: map-get($breakpoints, xxl)) {
+            @content;
+        }
+    }
+}
+
+@mixin gradient($direction, $gradient_list) {
+    background: -webkit-linear-gradient($direction, $gradient_list);
+    background: -moz-linear-gradient($direction, $gradient_list);
+    background: -o-linear-gradient($direction, $gradient_list);
+    background: linear-gradient($direction, $gradient_list);
+}

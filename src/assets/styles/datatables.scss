@@ -1,0 +1,206 @@
+@import 'assets/styles/mixins';
+@import 'assets/styles/variables';
+
+.dtb {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: inherit;
+
+    & select {
+        margin: 0 0.5rem;
+    }
+
+    &-entries {
+        float: left;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    &-search {
+        float: right;
+        margin: 0 1rem 2rem 0;
+        & label {
+            margin-right: 1rem;
+            font-weight: 600;
+        }
+        & input {
+            width: 250px;
+            height: 38px;
+            border-radius: 10px;
+            color: $colour-secondary;
+            padding: 0 0 0 1rem;
+            border-style: none;
+            background-color: $background-site;
+            transition: 0.3s;
+
+            &:focus {
+                background-color: #ffffff;
+                box-shadow: 0 0 5pt 2pt #d3d3d3;
+                border-style: none;
+            }
+        }
+    }
+
+    &-table {
+        width: 100%;
+
+        &-header {
+            &-row {
+                border-bottom: 1px solid transparent;
+            }
+
+            &-cell {
+                padding: 20px 10px;
+                font-size: 1rem;
+                text-transform: uppercase;
+
+                &:hover {
+                    cursor: default;
+                }
+
+                &-content {
+                    display: flex;
+                    align-items: center;
+                    justify-content: left;
+                    & span {
+                        margin-right: 1rem;
+                    }
+                }
+            }
+        }
+
+        &-row {
+            border-top: 10px solid #fff;
+            border-bottom: 10px solid #fff;
+            font-weight: 400;
+
+            &:hover td {
+                background: #e5e3db;
+                cursor: pointer;
+            }
+
+            &:hover td.dtb-table-cell.first-cell {
+                background: #e5e3db;
+            }
+
+            &:last-of-type {
+                border-color: #fff;
+            }
+
+            &:nth-child(odd) {
+                background: $background-site;
+
+                & > td:first-child {
+                    background: $background-site;
+                }
+            }
+
+            &:nth-child(even) {
+                & > td:first-child {
+                    background: $background-site;
+                }
+            }
+
+            &-nomatch {
+                padding: 50px 10px;
+                text-align: center;
+                background: $background-site;
+                border-bottom: 1px solid #fff;
+            }
+        }
+
+        &-cell {
+            padding: 1rem;
+            transition: 0.2s;
+            background: $background-site;
+        }
+
+        &-arrow {
+            &-up {
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-bottom: 8px solid #dcdcdc;
+                margin-bottom: 2px;
+
+                &.active {
+                    border-bottom: 8px solid $colour-secondary;
+                }
+
+                &.inactive {
+                    border-color: transparent;
+                }
+            }
+
+            &-down {
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 8px solid #dcdcdc;
+                margin-top: 2px;
+
+                &.active {
+                    border-top: 8px solid $colour-secondary;
+                }
+
+                &.inactive {
+                    border-color: transparent;
+                }
+            }
+        }
+    }
+
+    &-showing {
+        float: left;
+        margin-top: 15px;
+    }
+
+    &-pagination {
+        float: right;
+
+        &-btn {
+            border: none;
+            background: none;
+            padding: 0.5rem;
+            margin: 1rem 0.5rem;
+            border-radius: 5px;
+
+            &:hover {
+                border-radius: 5px;
+                border-color: #fff;
+                background-color: $colour-primary;
+                cursor: pointer;
+                color: #fff;
+            }
+
+            &.disabled {
+                color: $font-color-gray;
+                &:hover {
+                    cursor: default;
+                    background-color: inherit;
+                    color: inherit;
+                }
+            }
+
+            &.active {
+                border-color: transparent;
+                background-color: $colour-primary;
+                border-radius: 5px;
+                color: #fff;
+                font-weight: 600;
+
+                &:hover {
+                    border-radius: 5px;
+                    background-color: #ce5151;
+                    color: #fff;
+                }
+            }
+
+            &:first-of-type {
+                margin-right: 10px;
+            }
+
+            &:last-of-type {
+                margin-left: 10px;
+            }
+        }
+    }
+}

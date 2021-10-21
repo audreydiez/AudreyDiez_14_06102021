@@ -1,0 +1,177 @@
+@import 'assets/styles/mixins';
+@import 'assets/styles/variables';
+
+.main-new-employee {
+    margin: 1rem 5rem 1rem 5rem;
+    width: calc(100% - 10rem);
+
+    & .form-classic {
+        width: 100%;
+        //background-color: #11998e;
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            width: 100%;
+
+            &.border-style {
+                margin: 2rem 0;
+                border: 2px solid $font-color-gray;
+                border-radius: 10px;
+                padding: 1rem 2rem;
+
+                width: calc(100% - 4rem);
+            }
+
+            .row-50 {
+                flex-basis: calc(50% - 2rem);
+
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .row-100 {
+                flex-basis: 100%;
+
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+        }
+
+        .form-label {
+            flex-basis: 100%;
+            margin: 1rem 0;
+        }
+        .form-input {
+            width: 100%;
+
+            margin: 0 0 1rem 0;
+            height: 38px;
+            border-radius: 10px;
+            color: $colour-secondary;
+            padding: 0 0 0 1rem;
+            border-style: none;
+            background-color: $background-site;
+            transition: 0.3s;
+
+            &:focus {
+                background-color: #ffffff;
+                box-shadow: 0 0 5pt 2pt #d3d3d3;
+                border-style: none;
+            }
+        }
+        & .btn-submit {
+            margin: 2rem auto 0 auto;
+            width: 200px;
+            border-radius: 10px;
+            height: 40px;
+            border: none;
+            background-color: $colour-primary;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            &:hover,
+            &:focus {
+                cursor: pointer;
+                background-color: #ce5151;
+            }
+        }
+    }
+}
+
+.react-datepicker-wrapper,
+.react-datepicker_input-container,
+.react-datepicker__input-container input {
+    width: calc(100% - 1rem);
+    display: block;
+    height: 35px;
+    border: none;
+    background-color: $background-site;
+    border-radius: 10px;
+    padding: 0 0 0 1rem;
+    color: $font-color-gray;
+
+    &:focus {
+        background-color: #ffffff;
+        box-shadow: 0 0 5pt 2pt #d3d3d3;
+    }
+}
+.react-datepicker__header {
+    background-color: $colour-primary !important;
+    padding: 15px 0 !important;
+    font-weight: 600 !important;
+    & button {
+        display: none;
+    }
+    & select {
+        width: 35%;
+        height: 30px;
+        padding: 0 0 0 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+.react-datepicker__day-name {
+    color: #ffffff !important;
+    font-size: 0.9rem;
+}
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+    width: 3.7rem !important;
+    line-height: 2rem !important;
+}
+.react-datepicker__week {
+    font-family: 'Poppins', sans-serif;
+}
+.react-datepicker__day--selected {
+    background-color: $colour-primary !important;
+}
+
+.custom-select {
+    width: 100%;
+}
+.custom-option {
+    transition: background 60ms;
+}
+.custom-select__control {
+    margin: -1.2rem 0 -0.4rem 0;
+    height: 38px;
+    border-radius: 10px !important;
+
+    border-style: none !important;
+    background-color: $background-site !important;
+    box-shadow: 0 0 0 0 transparent !important;
+
+    &--is-focused {
+        background-color: #ffffff !important;
+        box-shadow: 0 0 5pt 2pt #d3d3d3 !important;
+    }
+}
+.department-label {
+    margin-bottom: 2.5rem !important;
+}
+
+.custom-option:hover {
+    transition-delay: 60ms;
+    background: #e5e3db;
+}
+.custom-option.custom-select__option:active {
+    background: $colour-primary;
+}
+.custom-option.custom-select__option--is-focused {
+    border: none !important;
+    background: none;
+}
+.custom-option.custom-select__option--is-selected {
+    border: none !important;
+    background: $colour-primary;
+}
+.custom-select__menu {
+    top: inherit !important;
+}
