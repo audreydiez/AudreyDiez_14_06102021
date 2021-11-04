@@ -5,6 +5,7 @@
     margin-top: 2rem;
     width: 100%;
     max-width: inherit;
+    overflow-x: scroll;
 
     & select {
         margin: 0 0.5rem;
@@ -14,13 +15,23 @@
         float: left;
         margin-bottom: 15px;
         font-weight: 600;
+        width: 50%;
+
+        @include breakpoint(m) {
+            width: 80%;
+        }
     }
 
     &-search {
         float: right;
         margin: 0 1rem 2rem 0;
+        @include breakpoint(m) {
+            float: left;
+            margin: 0.5rem 0;
+        }
+
         & label {
-            margin-right: 1rem;
+            margin: 0 1rem 0 0;
             font-weight: 600;
         }
         & input {
@@ -32,6 +43,11 @@
             border-style: none;
             background-color: $background-site;
             transition: 0.3s;
+
+            @include breakpoint(m) {
+                width: 70%;
+                margin: 0.5rem 0;
+            }
 
             &:focus {
                 background-color: #ffffff;

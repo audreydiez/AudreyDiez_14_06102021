@@ -10,7 +10,10 @@ import Select, { createFilter } from 'react-select'
 import { useState } from 'react'
 
 import { statesUSA, departments } from 'assets/data/data'
-import { CustomOption, years, months } from 'utils/DatePickerOptions'
+import { CustomOption, years, months } from 'utils/SelectOptions'
+
+import { Modal, useModal } from 'react-clean-modal'
+import moment from 'moment'
 
 const initialStateEmployee = {
     firstName: '',
@@ -26,14 +29,24 @@ const initialStateEmployee = {
 
 function NewEmployee() {
     const [newEmployee, setNewEmployee] = useState(initialStateEmployee)
+    const { isShowing: showModal, toggle: toggleModal } = useModal()
+    const { isShowing: showModalError, toggle: toggleModalError } = useModal()
 
     const formSubmit = (e) => {
         e.preventDefault()
+        if (newEmployee.firstName.length < 1 || newEmployee.lastName.length < 1) {
+            return toggleModalError()
+        }
+        toggleModal()
+    }
+
+    const confirmSubmitModal = () => {
         let employees = JSON.parse(localStorage.getItem('employees')) || []
+
         employees.push(newEmployee)
         localStorage.setItem('employees', JSON.stringify(employees))
         setNewEmployee(initialStateEmployee)
-        console.log(newEmployee)
+        toggleModal()
     }
 
     const createDatePicker = (inputName) => {
@@ -133,6 +146,57 @@ function NewEmployee() {
         )
     }
 
+    const modalError = () => {
+        return (
+            <Modal
+                isVisible={showModalError}
+                hide={toggleModalError}
+                animations={true}
+                closeOnOverlayClick={true}
+                closeOnTop={true}
+                closeOnScroll={true}>
+                <div className="modal-container-new-employee--content error">
+                    <p>Employee must have firstname and lastname at least.</p>
+                    <button className="btn-submit" type="submit" onClick={toggleModalError}>
+                        Ok
+                    </button>
+                </div>
+            </Modal>
+        )
+    }
+
+    const modalSubmit = () => {
+        return (
+            <Modal
+                isVisible={showModal}
+                hide={toggleModal}
+                animations={true}
+                customClass={'new-employee'}
+                customFooter={modalButtons}>
+                <div className="modal-container-new-employee--content">
+                    Employee
+                    <span>
+                        {newEmployee.firstName} {newEmployee.lastName}
+                    </span>
+                    has been registered
+                </div>
+            </Modal>
+        )
+    }
+
+    const modalButtons = [
+        {
+            text: 'Cancel registration',
+            className: 'btn-cancel btn-modal',
+            eventHandling: toggleModal
+        },
+        {
+            text: 'Ok',
+            className: 'btn-submit btn-modal',
+            eventHandling: confirmSubmitModal
+        }
+    ]
+
     return (
         <div className="new-employee">
             <HeaderTitle title="New Employee" />
@@ -204,6 +268,8 @@ function NewEmployee() {
                     </button>
                 </form>
             </main>
+            {modalSubmit()}
+            {modalError()}
         </div>
     )
 }

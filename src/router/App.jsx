@@ -1,20 +1,13 @@
 import './App.scss'
 
-import Employees from 'containers/Employees/Employees'
-import Home from 'containers/Home/Home'
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Navigation from '../components/Navigation/Navigation'
-import NewEmployee from '../containers/NewEmployee/NewEmployee'
+import Employees from 'containers/Employees/Employees'
+import NewEmployee from 'containers/NewEmployee/NewEmployee'
+import Navigation from 'components/Navigation/Navigation'
 
 const routes = [
     {
         path: '/',
-        exact: true,
-        component: Home
-    },
-    {
-        path: '/employees',
         exact: true,
         component: Employees
     },
@@ -28,9 +21,8 @@ const routes = [
 function App() {
     return (
         <Router>
-            <div className="router-container">
-                <Navigation />
-
+            <Navigation />
+            <main className="main">
                 <Switch>
                     {routes.map((route, i) => (
                         <Route
@@ -41,7 +33,7 @@ function App() {
                         />
                     ))}
                 </Switch>
-            </div>
+            </main>
         </Router>
     )
 }

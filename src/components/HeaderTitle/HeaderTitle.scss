@@ -2,18 +2,18 @@
 @import 'assets/styles/variables';
 .header {
     width: auto;
+    margin-bottom: 4rem;
 
     &-title {
-        height: 80px;
-
+        height: 50px;
         font-weight: 600;
         font-size: 1.5rem;
-        padding: 4rem 0 0 5rem;
+        padding: 3rem 0 0;
     }
     &-separator {
         width: 50%;
         height: 2px;
-        margin: 0 0 2rem 5rem;
+        margin: 0 0 0 0;
         background-color: $colour-secondary;
     }
 }

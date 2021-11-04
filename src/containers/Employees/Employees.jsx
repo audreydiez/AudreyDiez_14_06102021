@@ -1,26 +1,37 @@
 import './Employees.scss'
 
 import DataTables from 'datatables-plugin-react'
-import 'assets/styles/datatables.scss'
+import 'assets/styles/datatables_overrided.scss'
 
-import { dataTableLabels } from 'assets/data/data'
+import { dataTableLabels, departments, statesUSA } from 'assets/data/data'
 
 import moment from 'moment'
+import HeaderTitle from 'components/HeaderTitle/HeaderTitle'
+import { useEffect, useState } from 'react'
 
 function Employees() {
-    let employeesData = JSON.parse(localStorage.getItem('employees')) || []
+    const [employeesList, setEmployeesList] = useState([])
+    const [key, setKey] = useState([])
 
-    employeesData = employeesData.map((employee) => ({
-        ...employee,
-        startDate: moment(employee.startDate).format('MM/DD/yyyy'),
-        birthdate: moment(employee.birthdate).format('MM/DD/yyyy')
-    }))
+    useEffect(() => {
+        let employees = JSON.parse(localStorage.getItem('employees')) || []
+
+        employees = employees.map((employee) => ({
+            ...employee,
+            startDate: moment(employee.startDate).format('MM/DD/yyyy'),
+            birthdate: moment(employee.birthdate).format('MM/DD/yyyy')
+        }))
+
+        setEmployeesList(employees)
+
+        setKey(key + 1)
+    }, [])
 
     return (
-        <main className="main">
-            Employees
-            <DataTables labels={dataTableLabels} data={employeesData} />
-        </main>
+        <>
+            <HeaderTitle title={'Employees'} />
+            <DataTables labels={dataTableLabels} data={employeesList} key={key} />
+        </>
     )
 }
 

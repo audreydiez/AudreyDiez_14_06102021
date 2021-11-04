@@ -1,14 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import 'assets/styles/reset.css'
-import 'assets/styles/utils.scss'
-import './index.css'
-
 import App from './router/App'
 import reportWebVitals from './reportWebVitals'
 
-export const ENV_MODE = 'development'
+import 'assets/styles/reset.css'
+import 'assets/styles/utils.scss'
+import './index.scss'
 
 ReactDOM.render(
     <React.StrictMode>
