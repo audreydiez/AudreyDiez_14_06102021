@@ -1,70 +1,118 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Contributors][contributors-shield]][contributors-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+![Website](https://img.shields.io/website?style=for-the-badge&up_message=audreydiez.com&url=https%3A%2F%2Faudreydiez.com%2F)
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/audreydiez/AudreyDiez_14_06102021">  
+    <img src="https://github.com/audreydiez/AudreyDiez_14_06102021/blob/main/src/assets/img/logo_background.svg" alt="Logo" width="456" height="228">
+  </a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<h3 align="center">Projet 14 - HR Network</h3>
+</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<p align="left">
+<br />
+     Compétences visées :     
+       <ol>
+         <li>Refondre une application pour réduire la dette technique</li>      
+         <li>Analyser la performance d'une application web</li>  
+         <li>Déployer une application front-end</li>  
+         <li>Développer un module npm</li>  
+       </ol>    
+    <br />
+Lien du plugin npm : <a href="https://www.npmjs.com/package/react-clean-modal">React Clean Modal</a>
+ <br /><br />
+    ·
+    <a href="https://github.com/audreydiez/AudreyDiez_14_06102021/issues">Reporter un Bug</a>
+    ·
+    <a href="https://github.com/audreydiez/AudreyDiez_14_06102021/issues">Nouvelle feature</a>
+     <br />
+      <br />
+  </p>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<details open="open">
+  <summary>Wiki projet</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">Contexte</a>     
+    </li>
+    <li>
+      <a href="#getting-started">Installation</a>    
+      <ul>
+        <li><a href="#prerequisites">Scripts disponibles</a></li>
+      </ul>  
+    </li>
+    <li><a href="#usage">Maquettes</a></li> 
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- ABOUT THE PROJECT -->
+## Le projet
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Cette société utilise une application web interne, appelée HRnet, qui gère les dossiers des employés. L'application est ancienne et utilise jQuery côté front end, ce qui entraîne des bugs considérables et une augmentation des plaintes en interne. Votre équipe de développement s'efforce depuis un certain temps déjà de mettre à niveau l'application.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Développé avec :
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* [React](https://fr.reactjs.org/)
+* [React - Router](https://reactrouter.com/)
+* [Babel/core](https://babeljs.io/)
+* [SASS](https://sass-lang.com/)
+* [ESLint](https://eslint.org/)
+* [datatables-plugin-react](https://www.npmjs.com/package/datatables-plugin-react)
+* [react-clean-modal](https://www.npmjs.com/package/react-clean-modal)
+* [react-datepicker](https://reactdatepicker.com/)
+* [react-select](https://react-select.com/home)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- GETTING STARTED -->
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Install and launch front-end
 
-### Code Splitting
+Clone this repository:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+`git clone git@github.com:audreydiez/AudreyDiez_14_06102021.git`
 
-### Analyzing the Bundle Size
+Then install dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+`npm install`
 
-### Making a Progressive Web App
+Launch front-end on port 3000, automatically displayed on your default browser at `http://localhost:3000/`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+`npm run start`
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<!-- CONTACT -->
+## Contact
 
-### Deployment
+Audrey Diez - [@Linkedin](https://www.linkedin.com/in/audrey-diez-5862345b/) - audrey.diez@gmail.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/audreydiez/AudreyDiez_14_06102021?style=for-the-badge
+[contributors-url]: https://github.com/audreydiez/AudreyDiez_14_06102021/graphs/contributors
+
+[stars-shield]: https://img.shields.io/github/stars/audreydiez/AudreyDiez_14_06102021.svg?style=for-the-badge
+[stars-url]: https://github.com/audreydiez/AudreyDiez_14_06102021/stargazers
+[issues-shield]: https://img.shields.io/github/issues/audreydiez/AudreyDiez_14_06102021.svg?style=for-the-badge
+[issues-url]: https://github.com/audreydiez/AudreyDiez_14_06102021/issues
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/audrey-diez-5862345b
+[website-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[website-url]: https://linkedin.com/in/audrey-diez-5862345b
