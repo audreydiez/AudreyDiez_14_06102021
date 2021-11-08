@@ -52,6 +52,7 @@ function NewEmployee() {
     const createDatePicker = (inputName) => {
         return (
             <DatePicker
+                id={inputName}
                 renderCustomHeader={({
                     date,
                     changeYear,
@@ -130,6 +131,9 @@ function NewEmployee() {
     const createSelect = (options, inputName) => {
         return (
             <Select
+                aria-label={inputName}
+                aria-haspopup="listbox"
+                id={inputName}
                 filterOption={createFilter({ ignoreAccents: false })}
                 options={options}
                 components={{ Option: CustomOption }}
@@ -222,7 +226,7 @@ function NewEmployee() {
                             {createDatePicker('birthdate')}
                         </div>
                         <div className="row-50">
-                            <label htmlFor="start-date" className="form-label">
+                            <label htmlFor="startDate" className="form-label">
                                 Start date
                             </label>
                             {createDatePicker('startDate')}
@@ -248,7 +252,7 @@ function NewEmployee() {
                             {createSelect(statesUSA, 'state')}
                         </div>
                         <div className="row-50">
-                            <label htmlFor="zip" className="form-label">
+                            <label htmlFor="zipCode" className="form-label">
                                 Zip Code
                             </label>
                             {createInput('text', 'zipCode')}
@@ -256,7 +260,7 @@ function NewEmployee() {
                     </div>
                     <div className="row">
                         <div className="row-100">
-                            <label htmlFor="state" className="form-label department-label">
+                            <label htmlFor="department" className="form-label department-label">
                                 Department
                             </label>
                             {createSelect(departments, 'department')}

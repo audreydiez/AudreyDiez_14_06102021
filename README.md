@@ -26,7 +26,7 @@
          <li>Développer un module npm</li>  
        </ol>    
     <br />
-Lien du plugin npm : <a href="https://www.npmjs.com/package/react-clean-modal">React Clean Modal</a>
+Lien du plugin npm : <a href="https://www.npmjs.com/package/react-clean-modal">React Clean Modal</a> / <a href="https://github.com/audreydiez/react-clean-modal">Github repo</a>
  <br /><br />
     ·
     <a href="https://github.com/audreydiez/AudreyDiez_14_06102021/issues">Reporter un Bug</a>

@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import './SideBar.scss'
-import Logo from 'assets/img/Logo_full.svg'
 import Avatar from 'assets/img/user.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -19,7 +18,7 @@ function SideBar(props) {
             className={`overlay ${props.showMenu ? 'active' : 'hide'} `}
             onClick={props.setMenuDisplay}>
             <nav
-                role="sub"
+                role="navigation"
                 className={`menu-nav ${props.showMenu ? 'active' : 'hidden'} `}
                 onClick={(e) => e.stopPropagation()}>
                 <div className="menu-nav-blocs">
