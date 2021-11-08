@@ -24,7 +24,7 @@ function SideBar(props) {
                 <div className="menu-nav-blocs">
                     <div className="menu-nav-blocs-link profile">
                         <div className="bloc-icon">
-                            <img src={Avatar} alt="" className="avatar" />
+                            <img width="50" height="50" src={Avatar} alt="" className="avatar" />
                         </div>
                         <span>John Cena</span>
                     </div>
@@ -64,7 +64,7 @@ function SideBar(props) {
                     </Link>
                 </div>
                 <div className="menu-nav-img">
-                    <img className="blob" src={Blob} alt="" />
+                    <img width="700" height="700" className="blob" src={Blob} alt="" />
                     <img className="artwork" src={Workers} alt="" />
                 </div>
             </nav>

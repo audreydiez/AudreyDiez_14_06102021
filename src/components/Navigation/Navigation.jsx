@@ -34,7 +34,7 @@ function Navigation() {
                         </div>
                     </li>
                     <li className="main-nav-blocs-bloc">
-                        <img className="logo" src={Logo} alt="HRnet Home" />
+                        <img width="150" height="40" className="logo" src={Logo} alt="HRnet Home" />
                     </li>
                     <li className="main-nav-blocs-bloc">
                         <div className="notifications">
@@ -55,7 +55,7 @@ function Navigation() {
 
                     <li className="main-nav-blocs-bloc">
                         <div className="user">John Cena</div>
-                        <img src={Avatar} alt="" className="avatar" />
+                        <img width="50" height="50" src={Avatar} alt="" className="avatar" />
                     </li>
                 </ul>
             </nav>

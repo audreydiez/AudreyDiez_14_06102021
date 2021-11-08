@@ -188,11 +188,11 @@
             }
 
             &.disabled {
-                color: $font-color-gray;
+                color: #000;
                 &:hover {
                     cursor: default;
                     background-color: inherit;
-                    color: inherit;
+                    color: #000;
                 }
             }
 

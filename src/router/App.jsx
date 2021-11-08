@@ -9,12 +9,12 @@ const routes = [
     {
         path: '/',
         exact: true,
-        component: NewEmployee
+        component: Employees
     },
     {
-        path: '/employee',
+        path: '/new-employee',
         exact: true,
-        component: Employees
+        component: NewEmployee
     }
 ]
 
