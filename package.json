@@ -15,7 +15,7 @@
         "lodash": "^4.17.21",
         "moment": "^2.29.1",
         "react": "^17.0.2",
-        "react-clean-modal": "^0.1.9",
+        "react-clean-modal": "^0.2.2",
         "react-datepicker": "^4.2.1",
         "react-dom": "^17.0.2",
         "react-router-dom": "^5.3.0",

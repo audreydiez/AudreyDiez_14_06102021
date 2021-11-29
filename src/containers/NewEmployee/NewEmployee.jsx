@@ -13,7 +13,6 @@ import { statesUSA, departments } from 'assets/data/data'
 import { CustomOption, years, months } from 'utils/SelectOptions'
 
 import { Modal, useModal } from 'react-clean-modal'
-import moment from 'moment'
 
 const initialStateEmployee = {
     firstName: '',
